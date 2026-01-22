@@ -14,7 +14,8 @@ def risk(x):
 
 def total_risk(x):
     r = risk(x)
-    return float(np.max(r) * np.sum(r))
+    return float(np.max(r) * np.prod(r))
+
 
 # random baseline
 x_random = rng.dirichlet(np.ones(m)) * B
