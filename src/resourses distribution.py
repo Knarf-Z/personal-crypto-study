@@ -14,7 +14,7 @@ def risk(x):
 
 def total_risk(x):
     r = risk(x)
-    return float(np.max(r) + np.sum(r))
+    return float(np.max(r) * np.sum(r))
 
 # random baseline
 x_random = rng.dirichlet(np.ones(m)) * B
@@ -58,15 +58,3 @@ for i, v in enumerate(values):
     plt.text(i, v, f"{v:.6f}", ha="center", va="bottom", fontsize=10)
 plt.show()
 
-# Plot 2: optimization process (dense)
-plt.figure()
-plt.plot(range(1, len(history) + 1), history)
-plt.xlabel("Function evaluation")
-plt.ylabel("Total Risk")
-plt.title("Optimization Process: Total Risk vs Function Evaluation")
-plt.grid(alpha=0.3)
-plt.show()
-
-print("Function evaluations logged:", len(history))
-print("x_opt:", x_opt)
-print("post_total:", post_total)
